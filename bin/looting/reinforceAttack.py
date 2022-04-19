@@ -15,10 +15,14 @@ from src.models.User import User
 from src.common.logger import logger
 from sys import argv
 
-userAddress = secondOrNone(argv)
+# userAddress = secondOrNone(argv)
+#
+# if not userAddress:
+#     logger.error("Specify a user address")
+#     exit(1)
+#
+# nReinforced = reinforceAttack(User(userAddress))
 
-if not userAddress:
-    logger.error("Specify a user address")
-    exit(1)
 
-nReinforced = reinforceAttack(User(userAddress))
+def reinforce_attack_run(user_address) -> int:
+    return reinforceAttack(User(user_address))

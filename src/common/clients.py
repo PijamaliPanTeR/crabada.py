@@ -19,6 +19,7 @@ def makeCrabadaWeb2Client() -> CrabadaWeb2Client:
 
 
 def makeCrabadaWeb3Client(
+    privateKey: str,
     upperLimitForBaseFeeInGwei: float = None,
 ) -> CrabadaWeb3Client:
     """
@@ -27,7 +28,8 @@ def makeCrabadaWeb3Client(
     """
     return CrabadaWeb3Client(
         nodeUri=nodeUri,
-        privateKey=users[0]["privateKey"],
+        # privateKey=users[0]["privateKey"],
+        privateKey=privateKey,
         upperLimitForBaseFeeInGwei=upperLimitForBaseFeeInGwei,
     )
 

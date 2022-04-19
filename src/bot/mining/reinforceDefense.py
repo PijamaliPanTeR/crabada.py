@@ -27,6 +27,7 @@ def reinforceDefense(user: User) -> int:
 
     # Client with gas control
     client = makeCrabadaWeb3Client(
+        privateKey=user.config["privateKey"],
         upperLimitForBaseFeeInGwei=user.config["reinforcementMaxGasInGwei"]
     )
 

@@ -24,6 +24,7 @@ def closeMines(user: User) -> int:
     the number of closed games.
     """
     client = makeCrabadaWeb3Client(
+        privateKey=user.config["privateKey"],
         upperLimitForBaseFeeInGwei=user.config["closeMineMaxGasInGwei"]
     )
     openGames = fetchOpenMines(user)

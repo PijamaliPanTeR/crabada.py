@@ -16,10 +16,14 @@ from src.models.User import User
 from src.common.logger import logger
 from sys import argv
 
-userAddress = secondOrNone(argv)
+# userAddress = secondOrNone(argv)
+#
+# if not userAddress:
+#     logger.error("Specify a user address")
+#     exit(1)
+#
+# nClosed = closeMines(User(userAddress))
 
-if not userAddress:
-    logger.error("Specify a user address")
-    exit(1)
 
-nClosed = closeMines(User(userAddress))
+def close_mines_run(user_address) -> int:
+    return closeMines(User(user_address))

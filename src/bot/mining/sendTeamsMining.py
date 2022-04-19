@@ -18,6 +18,7 @@ def sendTeamsMining(user: User) -> int:
     Returns the opened mines
     """
     client = makeCrabadaWeb3Client(
+        privateKey=user.config["privateKey"],
         upperLimitForBaseFeeInGwei=user.config["mineMaxGasInGwei"]
     )
     availableTeams = fetchAvailableTeamsForTask(user, "mine")

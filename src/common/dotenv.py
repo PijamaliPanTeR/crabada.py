@@ -2,9 +2,7 @@ import os, dotenv
 from typing import Any, List
 from src.common.exceptions import InvalidConfig, MissingConfig
 
-# Load environment from .env
-if not os.path.isfile(".env"):
-    raise MissingConfig(".env file not found")
+
 dotenv.load_dotenv()
 
 
@@ -116,3 +114,16 @@ def parseListOfStrings(key: str, default: List[str] = []) -> List[str]:
     if value is None:
         return default
     return [v.strip() for v in value.split(",")]
+
+
+def parseListOfInts(key: str, default: List[int] = []) -> List[int]:
+    """
+    Parse a comma-separated string into a list of integers;
+    return None if the variable is not found, raises an
+    exception if the string elements are not castable to
+    integers.
+    """
+    value = getenv(key, None)
+    if value is None:
+        return default
+    return [int(v.strip()) for v in value.split(",")]

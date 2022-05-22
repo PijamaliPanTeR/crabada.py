@@ -2,8 +2,7 @@
 Send a user's available teams mining
 """
 
-from src.common.logger import logger
-from src.common.txLogger import txLogger, logTx
+from src.common.logger import logger, logTx
 from src.helpers.instantMessage import sendIM
 from src.common.clients import makeCrabadaWeb3Client
 from src.helpers.teams import fetchAvailableTeamsForTask
@@ -42,7 +41,6 @@ def sendTeamsMining(user: User) -> int:
             continue
 
         # Report
-        txLogger.info(txHash)
         txReceipt = client.getTransactionReceipt(txHash)
         logTx(txReceipt)
         if txReceipt["status"] != 1:
